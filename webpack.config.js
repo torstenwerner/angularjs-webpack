@@ -5,7 +5,6 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /**
  * Env
@@ -160,7 +159,8 @@ module.exports = function makeWebpackConfig() {
     config.plugins.push(
       new HtmlWebpackPlugin({
         template: './src/public/index.html',
-        inject: 'body'
+        inject: 'body',
+        favicon: './src/public/img/favicon.ico'
       }),
 
       // Reference: https://github.com/webpack/extract-text-webpack-plugin
@@ -180,13 +180,6 @@ module.exports = function makeWebpackConfig() {
       // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
       // Minify all javascript, switch loaders to minimizing mode
       new webpack.optimize.UglifyJsPlugin(),
-
-      // Copy assets from the public folder
-      // Reference: https://github.com/kevlened/copy-webpack-plugin
-      new CopyWebpackPlugin([{
-        from: __dirname + '/src/public/img',
-        to: 'img'
-      }])
     )
   }
 

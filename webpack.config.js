@@ -111,7 +111,7 @@ module.exports = function makeWebpackConfig() {
       })
     }, {
       // ASSET LOADER
-      // Reference: https://github.com/webpack/file-loader
+      // Reference: https://webpack.js.org/loaders/file-loader/
       // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
       // Rename the file using the asset hash
       // Pass along the updated reference to your code
@@ -120,7 +120,7 @@ module.exports = function makeWebpackConfig() {
       loader: 'file-loader'
     }, {
       // HTML LOADER
-      // Reference: https://github.com/webpack/raw-loader
+      // Reference: https://webpack.js.org/loaders/raw-loader/
       // Allow loading html through js
       test: /\.html$/,
       loader: 'raw-loader'
